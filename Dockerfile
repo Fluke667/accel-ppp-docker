@@ -4,7 +4,7 @@ ENV LINUX_HEADERS_VERSION 4.9.0-9
 
 RUN set -x \
     && apt-get update \
-    && apt-get install --no-install-recommends --no-install-suggests -y curl wget ca-certificates git sudo nano build-essential module-init-tools gcc g++ make cmake pkg-config libnl-3-dev libnl-utils libssl-dev libpcre3-dev libsnmp-dev libnet-snmp-perl libtritonus-bin lua5.1 liblua5.1-0-dev snmp libhiredis-dev libjson-c-dev ppp pppoe 
+    && apt-get install --no-install-recommends --no-install-suggests -y curl wget ca-certificates git sudo nano build-essential gcc g++ make cmake pkg-config libnl-3-dev libnl-utils libssl-dev libpcre3-dev libsnmp-dev libnet-snmp-perl libtritonus-bin lua5.1 liblua5.1-0-dev snmp libhiredis-dev libjson-c-dev ppp pppoe 
 
 RUN set -x \
     && build_dir="/opt/accel-ppp" \
