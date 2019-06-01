@@ -24,7 +24,7 @@ RUN set -x \
     #&& echo "1" > /proc/sys/net/ipv4/ip_forward \
     #&&  iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
-COPY accel-ppp.conf /etc/
+COPY ./etc/accel-ppp.conf /etc/
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod 0700 /entrypoint.sh    
