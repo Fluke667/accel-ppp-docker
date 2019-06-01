@@ -20,9 +20,8 @@ RUN set -x \
     ## && modprobe vlan_mon ipoe pptp \
     && echo "username * password *" > /etc/ppp/chap-secrets \
     && echo "username * password *" > /etc/ppp/pap-secrets \
-    ## Same as sysctl -w net.ipv4.ip_forward=1 / sysctl -w net.ipv4.ip_dynaddr=1 command
+    ## Same as sysctl -w net.ipv4.ip_forward=1 command
     #&& echo "1" > /proc/sys/net/ipv4/ip_forward \
-    #&& echo "1" > /proc/sys/net/ipv4/ip_dynaddr
     &&  iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 COPY accel-ppp.conf /etc/
