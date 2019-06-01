@@ -17,11 +17,12 @@ RUN set -x \
     && make \
     && cpack -G DEB \
     && dpkg -i accel-ppp.deb \
-#    && modprobe vlan_mon ipoe pptp \
+    ## && modprobe vlan_mon ipoe pptp \
     && echo "username * password *" > /etc/ppp/chap-secrets \
     && echo "username * password *" > /etc/ppp/pap-secrets \
-    && echo "1" > /proc/sys/net/ipv4/ip_forward \ # same as sysctl -w net.ipv4.ip_forward=1 command
-    && echo "1" > /proc/sys/net/ipv4/ip_dynaddr # same as sysctl -w net.ipv4.ip_dynaddr=1 command
+    ## Same as sysctl -w net.ipv4.ip_forward=1 / sysctl -w net.ipv4.ip_dynaddr=1 command
+    && echo "1" > /proc/sys/net/ipv4/ip_forward \
+    && echo "1" > /proc/sys/net/ipv4/ip_dynaddr
 
 COPY accel-ppp.conf /etc/
 
