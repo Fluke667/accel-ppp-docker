@@ -18,8 +18,8 @@ RUN set -x \
     && cpack -G DEB \
     && dpkg -i accel-ppp.deb \
 #    && modprobe vlan_mon ipoe pptp \
-    && systemctl start accel-ppp \
-    && sysctl -w net.ipv4.ip_forward=1
+#    && systemctl start accel-ppp \
+#    && sysctl -w net.ipv4.ip_forward=1
 
 COPY etc /etc/
 
