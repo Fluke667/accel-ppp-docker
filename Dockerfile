@@ -16,7 +16,7 @@ RUN set -x \
     && cmake -DRADIUS=TRUE -DNETSNMP=TRUE -DLUA=TRUE -DBUILD_IPOE_DRIVER=TRUE -DBUILD_VLAN_MON_DRIVER=TRUE -DCMAKE_INSTALL_PREFIX=/usr -DKDIR=/usr/src/linux-headers-4.9.0-9-amd64 -DCPACK_TYPE=Debian9 .. \
     && make \
     && cpack -G DEB \
-    && dpkg -i accel-ppp.deb \
+    && dpkg -i accel-ppp.deb
 #    && modprobe vlan_mon ipoe pptp \
 #    && systemctl start accel-ppp \
 #    && sysctl -w net.ipv4.ip_forward=1
