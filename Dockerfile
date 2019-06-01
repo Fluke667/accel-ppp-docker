@@ -20,7 +20,9 @@ RUN set -x \
 #    && modprobe vlan_mon ipoe pptp \
 #    && sysctl -w net.ipv4.ip_forward=1
 
- COPY accel-ppp.conf /etc/
+COPY accel-ppp.conf /etc/
 
 EXPOSE 2000-2001/tcp
-RUN ["service accel-ppp start"]
+
+RUN set -x \
+    && service accel-ppp start
