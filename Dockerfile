@@ -18,11 +18,9 @@ RUN set -x \
     && cpack -G DEB \
     && dpkg -i accel-ppp.deb
 #    && modprobe vlan_mon ipoe pptp \
-#    && systemctl start accel-ppp \
 #    && sysctl -w net.ipv4.ip_forward=1
 
  COPY accel-ppp.conf /etc/
-# MV /etc/accel-ppp.conf.dist /etc/accel-ppp.conf
 
 EXPOSE 2000-2001/tcp
-CMD ["accel-pppd", "-c", "/etc/accel-ppp.conf"]
+CMD ["service accel-pppd'start"]
