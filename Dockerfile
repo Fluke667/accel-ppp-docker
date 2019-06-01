@@ -19,12 +19,18 @@ RUN set -x \
     && make install \
     ## && modprobe vlan_mon ipoe pptp \
     && echo "username * password *" > /etc/ppp/chap-secrets \
-    && echo "username * password *" > /etc/ppp/pap-secrets \
+    && echo "username * password *" > /etc/ppp/pap-secrets
     ## Same as sysctl -w net.ipv4.ip_forward=1 command
     #&& echo "1" > /proc/sys/net/ipv4/ip_forward \
     #&&  iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 COPY accel-ppp.conf /etc/
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod 0700 /entrypoint.sh    
+ENTRYPOINT ["/entrypoint.sh"]
+
+
 
 EXPOSE 2000-2001/tcp
 
