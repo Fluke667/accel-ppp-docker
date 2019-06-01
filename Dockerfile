@@ -23,4 +23,4 @@ RUN set -x \
  COPY accel-ppp.conf /etc/
 
 EXPOSE 2000-2001/tcp
-CMD ["service accel-ppp start"]
+RUN ["service accel-ppp start"]
