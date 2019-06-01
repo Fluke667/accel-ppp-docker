@@ -1,4 +1,5 @@
 FROM debian:stretch-slim
+MAINTAINER Fluke667 <Fluke667@gmail.com>
 
 ENV LINUX_HEADERS_VERSION 4.9.0-9
 
