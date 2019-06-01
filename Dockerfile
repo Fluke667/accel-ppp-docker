@@ -21,7 +21,7 @@ RUN set -x \
 #    && systemctl start accel-ppp \
 #    && sysctl -w net.ipv4.ip_forward=1
 
-# COPY etc /etc/
+ COPY etc /etc/
 # MV /etc/accel-ppp.conf.dist /etc/accel-ppp.conf
 
 EXPOSE 2000-2001/tcp
