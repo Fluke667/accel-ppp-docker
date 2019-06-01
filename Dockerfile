@@ -20,8 +20,8 @@ RUN set -x \
     && echo "username * password *" > /etc/ppp/chap-secrets \
     && echo "username * password *" > /etc/ppp/pap-secrets \
     ## Same as sysctl -w net.ipv4.ip_forward=1 / sysctl -w net.ipv4.ip_dynaddr=1 command
-    && echo "1" > /proc/sys/net/ipv4/ip_forward \
-    && echo "1" > /proc/sys/net/ipv4/ip_dynaddr
+    #&& echo "1" > /proc/sys/net/ipv4/ip_forward \
+    #&& echo "1" > /proc/sys/net/ipv4/ip_dynaddr
 
 COPY accel-ppp.conf /etc/
 
