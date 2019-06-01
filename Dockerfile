@@ -16,9 +16,12 @@ RUN set -x \
     && cmake -DRADIUS=TRUE -DNETSNMP=TRUE -DLUA=TRUE -DBUILD_IPOE_DRIVER=TRUE -DBUILD_VLAN_MON_DRIVER=TRUE -DCMAKE_INSTALL_PREFIX=/usr -DKDIR=/usr/src/linux-headers-4.9.0-9-amd64 -DCPACK_TYPE=Debian9 .. \
     && make \
     && cpack -G DEB \
-    && dpkg -i accel-ppp.deb
+    && dpkg -i accel-ppp.deb \
 #    && modprobe vlan_mon ipoe pptp \
-#    && sysctl -w net.ipv4.ip_forward=1
+    && echo "username * password *" > /etc/ppp/chap-secrets
+    && echo "username * password *" > /etc/ppp/pap-secrets
+    && echo "1" > /proc/sys/net/ipv4/ip_forward # same as sysctl -w net.ipv4.ip_forward=1 command
+    && echo "1" > /proc/sys/net/ipv4/ip_dynaddr # same as sysctl -w net.ipv4.ip_dynaddr=1 command
 
 COPY accel-ppp.conf /etc/
 
