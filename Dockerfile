@@ -16,14 +16,15 @@ RUN set -x \
     && cd "build" \
     && cmake -DRADIUS=TRUE -DNETSNMP=TRUE -DLUA=TRUE -DBUILD_IPOE_DRIVER=TRUE -DBUILD_VLAN_MON_DRIVER=TRUE -DCMAKE_INSTALL_PREFIX=/usr -DKDIR=/usr/src/linux-headers-4.9.0-9-amd64 -DCPACK_TYPE=Debian9 .. \
     && make \
-    && make install \
+    && make install 
     ## && modprobe vlan_mon ipoe pptp \
-    && echo "username * password *" > /etc/ppp/chap-secrets \
-    && echo "username * password *" > /etc/ppp/pap-secrets
+    ## && echo "username * password *" > /etc/ppp/chap-secrets \
+    ## && echo "username * password *" > /etc/ppp/pap-secrets
 
 
 COPY ./etc/accel-ppp.conf /etc/
-
+COPY ./etc/ppp/chap-secrets /etc/ppp/
+COPY ./etc/ppp/pap-secrets /etc/ppp/
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod 0700 /entrypoint.sh    
 ENTRYPOINT ["/entrypoint.sh"]
