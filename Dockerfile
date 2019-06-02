@@ -18,8 +18,6 @@ RUN set -x \
     && make \
     && make install 
     ## && modprobe vlan_mon ipoe pptp \
-    ## && echo "username * password *" > /etc/ppp/chap-secrets \
-    ## && echo "username * password *" > /etc/ppp/pap-secrets
 
 
 COPY ./etc/accel-ppp.conf /etc/
