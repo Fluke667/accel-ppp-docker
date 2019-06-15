@@ -27,5 +27,5 @@ COPY ./etc/ppp/pap-secrets /etc/ppp/
 EXPOSE 2000-2001/tcp
 
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod a+x /entrypoint.sh
+RUN cd; chmod a+x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
