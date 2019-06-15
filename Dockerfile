@@ -25,7 +25,7 @@ COPY ./etc/ppp/chap-secrets /etc/ppp/
 COPY ./etc/ppp/pap-secrets /etc/ppp/
 COPY entrypoint.sh /etc/entrypoint.sh
 RUN chmod a+x /etc/entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/etc/entrypoint.sh"]
 
 
 
