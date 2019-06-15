@@ -24,12 +24,8 @@ COPY ./etc/accel-ppp.conf /etc/
 COPY ./etc/ppp/chap-secrets /etc/ppp/
 COPY ./etc/ppp/pap-secrets /etc/ppp/
 #COPY entrypoint.sh /entrypoint.sh
-RUN chmod a+x entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
-
-
 
 EXPOSE 2000-2001/tcp
 
-# RUN set -x \
-#     && service accel-ppp start
+RUN chmod a+x entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
