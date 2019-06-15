@@ -24,7 +24,7 @@ COPY ./etc/accel-ppp.conf /etc/
 COPY ./etc/ppp/chap-secrets /etc/ppp/
 COPY ./etc/ppp/pap-secrets /etc/ppp/
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod 0700 /entrypoint.sh    
+RUN chmod +x entrypoint.sh    
 ENTRYPOINT ["/entrypoint.sh"]
 
 
