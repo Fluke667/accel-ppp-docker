@@ -23,8 +23,8 @@ RUN set -x \
 COPY ./etc/accel-ppp.conf /etc/
 COPY ./etc/ppp/chap-secrets /etc/ppp/
 COPY ./etc/ppp/pap-secrets /etc/ppp/
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod a+x *.sh  
+COPY entrypoint.sh /etc/entrypoint.sh
+RUN chmod a+x /etc/entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 
